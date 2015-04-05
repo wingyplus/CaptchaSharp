@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Captcha
+﻿namespace Captcha
 {
 	public interface IOperand
 	{
