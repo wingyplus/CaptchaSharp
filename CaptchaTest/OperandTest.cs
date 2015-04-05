@@ -1,5 +1,4 @@
-﻿using System;
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using Captcha;
 
 namespace CaptchaTest
@@ -7,22 +6,20 @@ namespace CaptchaTest
 	[TestFixture]
 	public class OperandTest
 	{
-		[Test]
-		public void ToString_WhenGivenValue1AndMode1_ShouldReturn1() {
-			var operand = new Operand(1, 1);
-			Assert.That (operand.ToString (), Is.EqualTo ("1"));
+		[TestCase (1, Result = "1")]
+		[TestCase (2, Result = "2")]
+		public string ToString_Mode1 (int value)
+		{
+			var operand = new Operand (value, 1);
+			return operand.ToString ();
 		}
 
-		[Test]
-		public void ToString_WhenGivenValue2AndMode1_ShouldReturn2() {
-			var operand = new Operand (2, 1);
-			Assert.That (operand.ToString (), Is.EqualTo ("2"));
-		}
-
-		[Test]
-		public void ToString_WhenGivenValue1AndMode2_ShouldReturnOne() {
-			var operand = new Operand (1, 2);
-			Assert.That (operand.ToString (), Is.EqualTo ("One"));
+		[TestCase (1, Result = "One")]
+		[TestCase (2, Result = "Two")]
+		public string ToString_Mode2 (int value)
+		{
+			var operand = new Operand (value, 2);
+			return operand.ToString ();
 		}
 	}
 }
